@@ -15,9 +15,9 @@ Maven dependency:
 </dependency>
 ```
 
-Version 2.1.1 for Thymeleaf 2
+Version 2.1.1 for Thymeleaf 2 (discontinued)
 
-Version 3.2.0 compatible with Thymeleaf 3
+Version 3.2.2 compatible with Thymeleaf 3
 
 
 Add the Spring Data dialect to your existing Thymeleaf template engine:
@@ -232,5 +232,41 @@ To specify the pagination url use `sd:pagination-url` tag:
         <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
     </ul>
 </nav>
+```
+
+Sort Icons
+----------
+The generated HTML has the CSS classes `sorted`, `sorted-asc` and `sorted-desc`. This allows you to quite easily add some custom CSS to have sort icons in the table headers.
+
+Example with FontAwesome:
+```
+table.table thead .sorted:after{
+	display: inline-block;
+	font-family: 'FontAwesome';
+	opacity: 0.8;
+	margin-left: 1em;
+}
+table.table thead .sorted.sorted-desc:after{
+	content: "\f15e";
+}
+table.table thead .sorted.sorted-asc:after{
+	content: "\f15d";
+}
+```
+
+Example with Unicode characters:
+
+```
+.sorted-desc::after, .sorted-asc::after {
+    float: right;
+}
+
+.sorted-desc::after{
+    content:"\25BC";
+}
+
+.sorted-asc::after{
+    content: "\25B2";
+}
 ```
 
